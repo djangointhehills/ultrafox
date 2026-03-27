@@ -57,8 +57,7 @@ body {
 
 h1,
 h2,
-h3,
-h4 {
+h3 {
   font-family: "Fraunces", Georgia, serif;
   font-weight: 600;
   line-height: 1.2;
@@ -78,11 +77,6 @@ h2 {
 h3 {
   font-size: 1.15rem;
   margin: 1.25rem 0 0.5rem;
-}
-
-h4 {
-  font-size: 1.1rem;
-  margin: 0 0 0.25rem;
 }
 
 p {
@@ -290,6 +284,15 @@ a:focus-visible {
   padding-bottom: clamp(2rem, 5vw, 3rem);
 }
 
+@keyframes hero-arrive {
+  from { opacity: 0.6; transform: translateY(8px); }
+  to   { opacity: 1;   transform: translateY(0); }
+}
+
+.hero.is-arriving .hero-inner {
+  animation: hero-arrive 0.45s ease-out;
+}
+
 .hero-inner {
   display: grid;
   gap: 1.5rem;
@@ -379,6 +382,34 @@ a:focus-visible {
   width: 100%;
   height: 100%;
   border: none;
+}
+
+.video-embed img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.yt-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.video-embed:hover .yt-play svg path:first-child {
+  fill: #f00;
+  fill-opacity: 1;
+}
+
+.video-embed:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
 }
 
 .albums-heading {
@@ -568,7 +599,38 @@ a:focus-visible {
   background: rgba(0, 0, 0, 0.85);
 }
 
-.lightbox-close:focus-visible {
+.lightbox-prev,
+.lightbox-next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.lightbox-prev { left: 0.75rem; }
+.lightbox-next { right: 0.75rem; }
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.lightbox-close:focus-visible,
+.lightbox-prev:focus-visible,
+.lightbox-next:focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 2px;
 }
@@ -596,15 +658,6 @@ a:focus-visible {
   border-radius: 0.35rem;
   background: rgba(212, 168, 75, 0.1);
   border: 1px solid rgba(212, 168, 75, 0.2);
-}
-
-.show-day {
-  display: block;
-  font-size: 1.5rem;
-  font-weight: 600;
-  font-family: "Fraunces", Georgia, serif;
-  color: var(--accent);
-  line-height: 1;
 }
 
 .show-month {

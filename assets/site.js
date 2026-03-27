@@ -12,6 +12,19 @@
     el.href = "mai" + "lto:" + u + "@" + d;
   }
 
+  var brand = document.querySelector(".brand");
+  var hero = document.getElementById("hero");
+  if (brand && hero) {
+    brand.addEventListener("click", function () {
+      hero.classList.remove("is-arriving");
+      void hero.offsetWidth;
+      hero.classList.add("is-arriving");
+    });
+    hero.addEventListener("animationend", function () {
+      hero.classList.remove("is-arriving");
+    });
+  }
+
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.getElementById("site-nav");
   if (!toggle || !nav) return;
@@ -44,6 +57,8 @@
   if (sections.length && navLinks.length) {
     var headerH = document.querySelector(".site-header").offsetHeight;
 
+    var lastHash = "";
+
     function updateActive() {
       var scrollY = window.scrollY + headerH + 40;
       var current = "";
@@ -61,6 +76,11 @@
       navLinks.forEach(function (link) {
         link.classList.toggle("is-active", link.getAttribute("href") === "#" + current);
       });
+
+      if (current && current !== lastHash) {
+        lastHash = current;
+        history.replaceState(null, "", "#" + current);
+      }
     }
 
     var ticking = false;
@@ -77,22 +97,63 @@
     updateActive();
   }
 
+  var facade = document.getElementById("yt-facade");
+  if (facade) {
+    function loadYT() {
+      var iframe = document.createElement("iframe");
+      iframe.src = facade.getAttribute("data-src");
+      iframe.title = "Ultrafox — YouTube playlist";
+      iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+      iframe.setAttribute("allowfullscreen", "");
+      facade.textContent = "";
+      facade.appendChild(iframe);
+      facade.removeAttribute("role");
+      facade.removeAttribute("tabindex");
+      facade.removeAttribute("aria-label");
+      facade.removeAttribute("data-src");
+      facade.removeAttribute("id");
+    }
+    facade.addEventListener("click", loadYT);
+    facade.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); loadYT(); }
+    });
+  }
+
   var dialog = document.getElementById("lightbox");
   var dialogImg = dialog ? dialog.querySelector(".lightbox-img") : null;
   var grid = document.querySelector(".photo-grid");
 
   if (dialog && dialogImg && grid) {
-    function openLightbox(card) {
-      var img = card.querySelector("img");
+    var cards = Array.prototype.slice.call(grid.querySelectorAll(".photo-card"));
+    var currentIdx = 0;
+
+    function showPhoto(idx) {
+      idx = ((idx % cards.length) + cards.length) % cards.length;
+      currentIdx = idx;
+      var img = cards[idx].querySelector("img");
       if (!img) return;
       dialogImg.src = img.getAttribute("data-full") || img.src;
       dialogImg.alt = img.alt;
+    }
+
+    function openLightbox(idx) {
+      showPhoto(idx);
       dialog.showModal();
     }
 
     grid.addEventListener("click", function (e) {
       var card = e.target.closest(".photo-card");
-      if (card) openLightbox(card);
+      if (!card) return;
+      var idx = cards.indexOf(card);
+      if (idx !== -1) openLightbox(idx);
+    });
+
+    dialog.querySelector(".lightbox-prev").addEventListener("click", function () {
+      showPhoto(currentIdx - 1);
+    });
+
+    dialog.querySelector(".lightbox-next").addEventListener("click", function () {
+      showPhoto(currentIdx + 1);
     });
 
     dialog.querySelector(".lightbox-close").addEventListener("click", function () {
@@ -101,6 +162,11 @@
 
     dialog.addEventListener("click", function (e) {
       if (e.target === dialog) dialog.close();
+    });
+
+    dialog.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { showPhoto(currentIdx - 1); e.preventDefault(); }
+      if (e.key === "ArrowRight") { showPhoto(currentIdx + 1); e.preventDefault(); }
     });
 
     dialog.addEventListener("close", function () {

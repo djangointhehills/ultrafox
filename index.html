@@ -21,9 +21,9 @@
     <meta name="twitter:image" content="https://djangointhehills.github.io/ultrafox/assets/images/59bc3b57-Ultrafox-Cover-Art-cropped.jpg" />
 
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; connect-src 'self'; frame-src https://www.youtube-nocookie.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' https://img.youtube.com; script-src 'self'; frame-src https://www.youtube-nocookie.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <link rel="icon" type="image/png" href="assets/images/favicon.png" sizes="any" />
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -115,14 +115,17 @@
       <section id="listen" class="section">
         <div class="layout-narrow">
           <h2>Listen</h2>
-          <div class="video-embed">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/videoseries?list=PLoGnZKngaEBkVRTnGaLurvh5jfVUf2xkI"
-              title="Ultrafox — YouTube playlist"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              loading="lazy"
-            ></iframe>
+          <div class="video-embed" id="yt-facade"
+               data-src="https://www.youtube-nocookie.com/embed/videoseries?list=PLoGnZKngaEBkVRTnGaLurvh5jfVUf2xkI&autoplay=1"
+               role="button" tabindex="0" aria-label="Play Ultrafox YouTube playlist">
+            <img src="https://img.youtube.com/vi/RDcIo0CPFvk/hqdefault.jpg"
+                 alt="Ultrafox — YouTube playlist thumbnail" loading="lazy" decoding="async" />
+            <div class="yt-play" aria-hidden="true">
+              <svg viewBox="0 0 68 48" width="68" height="48">
+                <path d="M66.5 7.7s-.7-4.7-2.8-6.8C60.7-2 57.2-2 55.6-2.2 46.4-3 34-3 34-3s-12.4 0-21.6.8C10.8-2 7.3-2 4.3.9 2.2 3 1.5 7.7 1.5 7.7S.8 13.2.8 18.8v5.2c0 5.5.7 11.1.7 11.1s.7 4.7 2.8 6.8c3 3 6.9 2.9 8.6 3.2C19.2 45.8 34 46 34 46s12.4 0 21.6-.8c1.6-.2 5.1-.2 8.1-3.1 2.1-2.1 2.8-6.8 2.8-6.8s.7-5.5.7-11.1v-5.2c0-5.6-.7-11.1-.7-11.1z" fill="#212121" fill-opacity=".8"/>
+                <path d="M27 32V14l18 9z" fill="#fff"/>
+              </svg>
+            </div>
           </div>
           <h3 class="albums-heading">Albums on Bandcamp</h3>
           <p>Three albums of gypsy swing, jazz ballads and original compositions.</p>
@@ -208,61 +211,88 @@
           </div>
           <div class="photo-grid">
             <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/00739a0d-5282384-orig.jpg" data-full="assets/images/00739a0d-5282384-orig.jpg" width="600" height="448" alt="Trio performing on stage — two guitarists seated with a double bassist standing between them against dark curtains" loading="lazy" decoding="async" />
+              <img src="assets/images/thumbs/b2189705-ultrafox-tour-draft-1-1.jpg" data-full="assets/images/b2189705-ultrafox-tour-draft-1-1.jpg" width="4592" height="3286" alt="Four band members posing with instruments against a black backdrop — two guitars, clarinet and double bass" loading="lazy" decoding="async" />
             </button>
             <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/064d318c-5282377-orig.jpg" data-full="assets/images/064d318c-5282377-orig.jpg" width="600" height="450" alt="Vocalist singing at a microphone with guitarist and accordionist accompanying on a small club stage" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/0946f49d-4894965-orig.jpg" data-full="assets/images/0946f49d-4894965-orig.jpg" width="600" height="399" alt="Close-up of a violinist in a hat playing under moody stage lighting" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/0e706ac2-4882536-orig.jpg" data-full="assets/images/0e706ac2-4882536-orig.jpg" width="600" height="338" alt="Two guitarists playing at a white-clothed table inside an ornate vintage carousel pavilion" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/0f38d4d3-4894963-orig.jpg" data-full="assets/images/0f38d4d3-4894963-orig.jpg" width="600" height="399" alt="Female vocalist bathed in purple light with stained glass windows glowing behind her" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/1867cf8b-4882537-orig.jpg" data-full="assets/images/1867cf8b-4882537-orig.jpg" width="600" height="399" alt="Trio posed in an ornate wooden-panelled room — two guitarists seated with double bassist standing" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/207d9d1a-ultrafox-08.jpg" data-full="assets/images/207d9d1a-ultrafox-08.jpg" width="3200" height="2400" alt="Two guitarists and a double bassist laughing together against a whitewashed brick wall" loading="lazy" decoding="async" />
+              <img src="assets/images/thumbs/96fad926-ultrafox-02.jpg" data-full="assets/images/96fad926-ultrafox-02.jpg" width="3200" height="2400" alt="Five-piece band mid-performance — vocalist laughing at a vintage microphone with two guitars, bass and clarinet" loading="lazy" decoding="async" />
             </button>
             <button type="button" class="photo-card">
               <img src="assets/images/thumbs/2380590c-4894955-orig.jpg" data-full="assets/images/2380590c-4894955-orig.jpg" width="600" height="399" alt="Five-piece band performing on stage with red velvet curtains — vocalist, two guitars, double bass and violin" loading="lazy" decoding="async" />
             </button>
             <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/281d6ced-5282383-orig.jpg" data-full="assets/images/281d6ced-5282383-orig.jpg" width="458" height="344" alt="Two guitarists playing acoustic guitars outdoors on a grassy hillside at golden hour" loading="lazy" decoding="async" />
+              <img src="assets/images/thumbs/f5a2b8bf-067.jpg" data-full="assets/images/f5a2b8bf-067.jpg" width="3264" height="2448" alt="Quartet on a theatre stage — violinist standing, two guitarists and bassist seated, framed by red and blue curtains" loading="lazy" decoding="async" />
             </button>
             <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/2ae3df6a-4882528-orig.jpg" data-full="assets/images/2ae3df6a-4882528-orig.jpg" width="600" height="338" alt="Two guitarists rehearsing at a round table in an elegant empty restaurant" loading="lazy" decoding="async" />
+              <img src="assets/images/thumbs/8b6dacfb-20140607-1m0c5158.jpg" data-full="assets/images/8b6dacfb-20140607-1m0c5158.jpg" width="700" height="467" alt="Band performing at a swing dance event with couples dancing in the foreground, pink and red stage lighting" loading="lazy" decoding="async" />
             </button>
             <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/2d3f7245-peter-and-ashley.jpg" data-full="assets/images/2d3f7245-peter-and-ashley.jpg" width="640" height="960" alt="Peter and Ashley seated with guitars under grapevine shadows against a brick wall at dusk" loading="lazy" decoding="async" />
+              <img src="assets/images/thumbs/b486f64a-018.jpg" data-full="assets/images/b486f64a-018.jpg" width="2448" height="3264" alt="Trio on stage in a heritage theatre with red curtains, audience seated at tables in the foreground" loading="lazy" decoding="async" />
             </button>
             <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/3477606e-5282386-orig.jpg" data-full="assets/images/3477606e-5282386-orig.jpg" width="326" height="245" alt="Four-piece band posed outdoors — vocalist in black blazer flanked by two guitarists and a double bassist" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/421ba146-4911068-orig.jpg" data-full="assets/images/421ba146-4911068-orig.jpg" width="600" height="406" alt="Band performing live in a dark intimate venue — guitars, double bass and violin on stage with audience visible" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/4240ffd6-ultrafox-03.jpg" data-full="assets/images/4240ffd6-ultrafox-03.jpg" width="3200" height="2401" alt="Five-piece band portrait — two guitars, double bass, vocalist at a vintage microphone and clarinettist against brick" loading="lazy" decoding="async" />
+              <img src="assets/images/thumbs/625d3b3f-10258920-10203481207099679-5692838958962996160-o.jpg" data-full="assets/images/625d3b3f-10258920-10203481207099679-5692838958962996160-o.jpg" width="2048" height="1150" alt="Quartet performing on a festival stage with black curtain backdrop, floor monitors and CD-for-sale sign" loading="lazy" decoding="async" />
             </button>
             <button type="button" class="photo-card">
               <img src="assets/images/thumbs/43cfc003-014.jpg" data-full="assets/images/43cfc003-014.jpg" width="1600" height="900" alt="Band performing at a jazz club — clarinettist standing, two guitars and double bass seated with PA speakers" loading="lazy" decoding="async" />
             </button>
             <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/46827513-4911071-orig.jpg" data-full="assets/images/46827513-4911071-orig.jpg" width="338" height="500" alt="Black and white shot of a guitarist seated on stage with double bass behind, clarinet resting on a stand" loading="lazy" decoding="async" />
+              <img src="assets/images/thumbs/207d9d1a-ultrafox-08.jpg" data-full="assets/images/207d9d1a-ultrafox-08.jpg" width="3200" height="2400" alt="Two guitarists and a double bassist laughing together against a whitewashed brick wall" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/53671bfd-ultrafox-05.jpg" data-full="assets/images/53671bfd-ultrafox-05.jpg" width="3200" height="2400" alt="Quartet portrait — two guitars, double bass and clarinet posed against a whitewashed brick wall" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/0f38d4d3-4894963-orig.jpg" data-full="assets/images/0f38d4d3-4894963-orig.jpg" width="600" height="399" alt="Female vocalist bathed in purple light with stained glass windows glowing behind her" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/fc6cebe6-4882538-orig.jpg" data-full="assets/images/fc6cebe6-4882538-orig.jpg" width="600" height="399" alt="Five band members posing outdoors with instruments — double bass, vocalist, two guitars and violin against stone wall" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/e3e24c86-10492221-752455324793034-4206289526646605355-n.jpg" data-full="assets/images/e3e24c86-10492221-752455324793034-4206289526646605355-n.jpg" width="720" height="960" alt="Trio playing on the stage of an ornate heritage theatre, wide shot showing the proscenium arch" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/421ba146-4911068-orig.jpg" data-full="assets/images/421ba146-4911068-orig.jpg" width="600" height="406" alt="Band performing live in a dark intimate venue — guitars, double bass and violin on stage with audience visible" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/064d318c-5282377-orig.jpg" data-full="assets/images/064d318c-5282377-orig.jpg" width="600" height="450" alt="Vocalist singing at a microphone with guitarist and accordionist accompanying on a small club stage" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/00739a0d-5282384-orig.jpg" data-full="assets/images/00739a0d-5282384-orig.jpg" width="600" height="448" alt="Trio performing on stage — two guitarists seated with a double bassist standing between them against dark curtains" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/0946f49d-4894965-orig.jpg" data-full="assets/images/0946f49d-4894965-orig.jpg" width="600" height="399" alt="Close-up of a violinist in a hat playing under moody stage lighting" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/1867cf8b-4882537-orig.jpg" data-full="assets/images/1867cf8b-4882537-orig.jpg" width="600" height="399" alt="Trio posed in an ornate wooden-panelled room — two guitarists seated with double bassist standing" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/664ac7b0-5282382-orig.jpg" data-full="assets/images/664ac7b0-5282382-orig.jpg" width="600" height="450" alt="Trio playing in a warmly lit hall with red drapes, a standing lamp and candles on tables" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/ada8e37d-ballarat-2.jpg" data-full="assets/images/ada8e37d-ballarat-2.jpg" width="640" height="423" alt="Quartet performing at Ballarat Jazz Club — clarinet, guitar, double bass and rhythm guitar" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/4240ffd6-ultrafox-03.jpg" data-full="assets/images/4240ffd6-ultrafox-03.jpg" width="3200" height="2401" alt="Five-piece band portrait — two guitars, double bass, vocalist at a vintage microphone and clarinettist against brick" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/961a69a3-10511087-10203326204627334-4696267525188938118-n.jpg" data-full="assets/images/961a69a3-10511087-10203326204627334-4696267525188938118-n.jpg" width="960" height="540" alt="Quartet performing in a warm-toned heritage room — guitar, double bass, rhythm guitar and saxophone" loading="lazy" decoding="async" />
             </button>
             <button type="button" class="photo-card">
               <img src="assets/images/thumbs/49aff806-trio-ultrafox.jpg" data-full="assets/images/49aff806-trio-ultrafox.jpg" width="851" height="566" alt="Trio portrait — two guitarists and double bassist standing with instruments against a whitewashed wall" loading="lazy" decoding="async" />
             </button>
             <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/4e48f790-1558377-856284451049253-4202228903811809169-n.jpg" data-full="assets/images/4e48f790-1558377-856284451049253-4202228903811809169-n.jpg" width="640" height="640" alt="Two guitarists playing in a dimly lit room, one in a flat cap, with warm vintage tones" loading="lazy" decoding="async" />
+              <img src="assets/images/thumbs/858147ff-dsc04248.jpg" data-full="assets/images/858147ff-dsc04248.jpg" width="681" height="1024" alt="Guitarist in a flat cap playing a Selmer-style guitar in a stone-walled cellar venue" loading="lazy" decoding="async" />
             </button>
             <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/53671bfd-ultrafox-05.jpg" data-full="assets/images/53671bfd-ultrafox-05.jpg" width="3200" height="2400" alt="Quartet portrait — two guitars, double bass and clarinet posed against a whitewashed brick wall" loading="lazy" decoding="async" />
+              <img src="assets/images/thumbs/0e706ac2-4882536-orig.jpg" data-full="assets/images/0e706ac2-4882536-orig.jpg" width="600" height="338" alt="Two guitarists playing at a white-clothed table inside an ornate vintage carousel pavilion" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/f28151d0-4890927-orig.jpg" data-full="assets/images/f28151d0-4890927-orig.jpg" width="600" height="367" alt="Quartet performing in a small church — violin, guitar, double bass and rhythm guitar with candles on the altar" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/e78e6d1c-4924493-orig.jpg" data-full="assets/images/e78e6d1c-4924493-orig.jpg" width="600" height="399" alt="Five-piece band performing in a dark club — vocalist with microphone, two guitars, bass and violin" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/b8930459-10440214-10203326204147322-6898018828188277680-n.jpg" data-full="assets/images/b8930459-10440214-10203326204147322-6898018828188277680-n.jpg" width="540" height="960" alt="Five-piece performing in a heritage hall — vocalist centre stage with guitar, bass and rhythm guitar behind" loading="lazy" decoding="async" />
             </button>
             <button type="button" class="photo-card">
               <img src="assets/images/thumbs/58ab9ebe-5305069-orig.jpg" data-full="assets/images/58ab9ebe-5305069-orig.jpg" width="600" height="400" alt="Trio performing under blue stage lighting with Ultrafox posters on the wall behind" loading="lazy" decoding="async" />
@@ -271,94 +301,43 @@
               <img src="assets/images/thumbs/5c5761db-5282388-orig.jpg" data-full="assets/images/5c5761db-5282388-orig.jpg" width="600" height="450" alt="Four musicians on stage — drums, guitar, double bass and rhythm guitar with sheet music on the floor" loading="lazy" decoding="async" />
             </button>
             <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/61b8d70f-4882527-orig.jpg" data-full="assets/images/61b8d70f-4882527-orig.jpg" width="350" height="467" alt="Two gypsy jazz guitars and a double bass resting on chairs by a sunlit window" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/625d3b3f-10258920-10203481207099679-5692838958962996160-o.jpg" data-full="assets/images/625d3b3f-10258920-10203481207099679-5692838958962996160-o.jpg" width="2048" height="1150" alt="Quartet performing on a festival stage with black curtain backdrop, floor monitors and CD-for-sale sign" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/664ac7b0-5282382-orig.jpg" data-full="assets/images/664ac7b0-5282382-orig.jpg" width="600" height="450" alt="Trio playing in a warmly lit hall with red drapes, a standing lamp and candles on tables" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/74d1191f-030.jpg" data-full="assets/images/74d1191f-030.jpg" width="640" height="640" alt="Guitarist in a hat and waistcoat playing a vintage acoustic guitar, Instagram-style warm filter" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/7ed42b22-4894962-orig.jpg" data-full="assets/images/7ed42b22-4894962-orig.jpg" width="600" height="399" alt="Close-up of a guitarist's hands fretting a chord on a gypsy jazz guitar under purple stage light" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/858147ff-dsc04248.jpg" data-full="assets/images/858147ff-dsc04248.jpg" width="681" height="1024" alt="Guitarist in a flat cap playing a Selmer-style guitar in a stone-walled cellar venue" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/87d1ca95-fox-tour.jpg" data-full="assets/images/87d1ca95-fox-tour.jpg" width="1800" height="1384" alt="Band performing on a theatre stage framed by red and blue curtains, viewed from the back of the hall" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/8a67b7dc-ultrafox-5.jpg" data-full="assets/images/8a67b7dc-ultrafox-5.jpg" width="2220" height="2215" alt="Six-panel member collage — guitarist, accordionist, clarinettist, double bassist, violinist and guitarist" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/8b6dacfb-20140607-1m0c5158.jpg" data-full="assets/images/8b6dacfb-20140607-1m0c5158.jpg" width="700" height="467" alt="Band performing at a swing dance event with couples dancing in the foreground, pink and red stage lighting" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/92a7b98f-5282379-orig.jpg" data-full="assets/images/92a7b98f-5282379-orig.jpg" width="403" height="403" alt="Quartet playing under a marquee at an outdoor event — guitar, double bass, rhythm guitar and vocalist" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/961a69a3-10511087-10203326204627334-4696267525188938118-n.jpg" data-full="assets/images/961a69a3-10511087-10203326204627334-4696267525188938118-n.jpg" width="960" height="540" alt="Quartet performing in a warm-toned heritage room — guitar, double bass, rhythm guitar and saxophone" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/96fad926-ultrafox-02.jpg" data-full="assets/images/96fad926-ultrafox-02.jpg" width="3200" height="2400" alt="Five-piece band mid-performance — vocalist laughing at a vintage microphone with two guitars, bass and clarinet" loading="lazy" decoding="async" />
+              <img src="assets/images/thumbs/b972c6df-4911067-orig.jpg" data-full="assets/images/b972c6df-4911067-orig.jpg" width="600" height="406" alt="Black and white close-up of two guitarists in flat caps, focused intently on their playing" loading="lazy" decoding="async" />
             </button>
             <button type="button" class="photo-card">
               <img src="assets/images/thumbs/a5ffc343-4911073-orig.jpg" data-full="assets/images/a5ffc343-4911073-orig.jpg" width="338" height="500" alt="Black and white portrait of a clarinettist performing with eyes focused on the instrument" loading="lazy" decoding="async" />
             </button>
             <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/ada8e37d-ballarat-2.jpg" data-full="assets/images/ada8e37d-ballarat-2.jpg" width="640" height="423" alt="Quartet performing at Ballarat Jazz Club — clarinet, guitar, double bass and rhythm guitar" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/b2189705-ultrafox-tour-draft-1-1.jpg" data-full="assets/images/b2189705-ultrafox-tour-draft-1-1.jpg" width="4592" height="3286" alt="Four band members posing with instruments against a black backdrop — two guitars, clarinet and double bass" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/b486f64a-018.jpg" data-full="assets/images/b486f64a-018.jpg" width="2448" height="3264" alt="Trio on stage in a heritage theatre with red curtains, audience seated at tables in the foreground" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/b8930459-10440214-10203326204147322-6898018828188277680-n.jpg" data-full="assets/images/b8930459-10440214-10203326204147322-6898018828188277680-n.jpg" width="540" height="960" alt="Five-piece performing in a heritage hall — vocalist centre stage with guitar, bass and rhythm guitar behind" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/b972c6df-4911067-orig.jpg" data-full="assets/images/b972c6df-4911067-orig.jpg" width="600" height="406" alt="Black and white close-up of two guitarists in flat caps, focused intently on their playing" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/c7840274-ultrafox-5.jpg" data-full="assets/images/c7840274-ultrafox-5.jpg" width="2220" height="2215" alt="Six-panel member collage — guitarist, accordionist, violinist, double bassist and two guitarists" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
               <img src="assets/images/thumbs/cd99d096-4894958-orig.jpg" data-full="assets/images/cd99d096-4894958-orig.jpg" width="600" height="399" alt="Close-up of a young guitarist in a flat cap leaning into his instrument under coloured stage lights" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/2d3f7245-peter-and-ashley.jpg" data-full="assets/images/2d3f7245-peter-and-ashley.jpg" width="640" height="960" alt="Peter and Ashley seated with guitars under grapevine shadows against a brick wall at dusk" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/2ae3df6a-4882528-orig.jpg" data-full="assets/images/2ae3df6a-4882528-orig.jpg" width="600" height="338" alt="Two guitarists rehearsing at a round table in an elegant empty restaurant" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/281d6ced-5282383-orig.jpg" data-full="assets/images/281d6ced-5282383-orig.jpg" width="458" height="344" alt="Two guitarists playing acoustic guitars outdoors on a grassy hillside at golden hour" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/4e48f790-1558377-856284451049253-4202228903811809169-n.jpg" data-full="assets/images/4e48f790-1558377-856284451049253-4202228903811809169-n.jpg" width="640" height="640" alt="Two guitarists playing in a dimly lit room, one in a flat cap, with warm vintage tones" loading="lazy" decoding="async" />
             </button>
             <button type="button" class="photo-card">
               <img src="assets/images/thumbs/d6d2e9ec-5199720-orig.jpg" data-full="assets/images/d6d2e9ec-5199720-orig.jpg" width="539" height="500" alt="Trio performing on a small stage with red curtains — two guitars and double bass with audience below" loading="lazy" decoding="async" />
             </button>
             <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/e3e24c86-10492221-752455324793034-4206289526646605355-n.jpg" data-full="assets/images/e3e24c86-10492221-752455324793034-4206289526646605355-n.jpg" width="720" height="960" alt="Trio playing on the stage of an ornate heritage theatre, wide shot showing the proscenium arch" loading="lazy" decoding="async" />
+              <img src="assets/images/thumbs/46827513-4911071-orig.jpg" data-full="assets/images/46827513-4911071-orig.jpg" width="338" height="500" alt="Black and white shot of a guitarist seated on stage with double bass behind, clarinet resting on a stand" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/7ed42b22-4894962-orig.jpg" data-full="assets/images/7ed42b22-4894962-orig.jpg" width="600" height="399" alt="Close-up of a guitarist's hands fretting a chord on a gypsy jazz guitar under purple stage light" loading="lazy" decoding="async" />
+            </button>
+            <button type="button" class="photo-card">
+              <img src="assets/images/thumbs/61b8d70f-4882527-orig.jpg" data-full="assets/images/61b8d70f-4882527-orig.jpg" width="350" height="467" alt="Two gypsy jazz guitars and a double bass resting on chairs by a sunlit window" loading="lazy" decoding="async" />
             </button>
             <button type="button" class="photo-card">
               <img src="assets/images/thumbs/e71fc2b2-peter-and-ash.jpg" data-full="assets/images/e71fc2b2-peter-and-ash.jpg" width="720" height="481" alt="Two guitarists performing side by side — lead guitarist in a flat cap playing a Selmer-style guitar" loading="lazy" decoding="async" />
             </button>
             <button type="button" class="photo-card">
               <img src="assets/images/thumbs/e7614382-ballarat-di-mauro.jpg" data-full="assets/images/e7614382-ballarat-di-mauro.jpg" width="427" height="570" alt="Guitarist in period attire playing a Di Mauro guitar by a window, selective colour effect" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/e78e6d1c-4924493-orig.jpg" data-full="assets/images/e78e6d1c-4924493-orig.jpg" width="600" height="399" alt="Five-piece band performing in a dark club — vocalist with microphone, two guitars, bass and violin" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/ee066fab-ultrafox-5.jpg" data-full="assets/images/ee066fab-ultrafox-5.jpg" width="2220" height="2215" alt="Six-panel member collage showing individual portraits of each band member with their instrument" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/f28151d0-4890927-orig.jpg" data-full="assets/images/f28151d0-4890927-orig.jpg" width="600" height="367" alt="Quartet performing in a small church — violin, guitar, double bass and rhythm guitar with candles on the altar" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/f5a2b8bf-067.jpg" data-full="assets/images/f5a2b8bf-067.jpg" width="3264" height="2448" alt="Quartet on a theatre stage — violinist standing, two guitarists and bassist seated, framed by red and blue curtains" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/f7586fef-5282392-orig.jpg" data-full="assets/images/f7586fef-5282392-orig.jpg" width="350" height="467" alt="Gypsy jazz guitars resting on a dark surface under warm lamp light" loading="lazy" decoding="async" />
-            </button>
-            <button type="button" class="photo-card">
-              <img src="assets/images/thumbs/fc6cebe6-4882538-orig.jpg" data-full="assets/images/fc6cebe6-4882538-orig.jpg" width="600" height="399" alt="Five band members posing outdoors with instruments — double bass, vocalist, two guitars and violin against stone wall" loading="lazy" decoding="async" />
             </button>
           </div>
         </div>
@@ -386,7 +365,6 @@
                 The Musical&rdquo;. He has supported Bob Dylan, Robert Plant, Hank Marvin, The Stray Cats, Tav Falco,
                 Rosie Flores, Big Sandy and his Flyrite Boys, Mark O&rsquo;Connor and Dan Crary over the years and more
                 recently Mike Compton.
-                <a href="https://www.peterbaylor.com/" target="_blank" rel="noopener noreferrer">www.peterbaylor.com</a>
               </p>
             </div>
           </div>
@@ -493,7 +471,9 @@
       </section>
       <dialog id="lightbox" class="lightbox" aria-label="Enlarged photo">
         <button class="lightbox-close" aria-label="Close">&times;</button>
+        <button class="lightbox-prev" aria-label="Previous photo">&#8249;</button>
         <img class="lightbox-img" src="" alt="" />
+        <button class="lightbox-next" aria-label="Next photo">&#8250;</button>
       </dialog>
     </main>
 
