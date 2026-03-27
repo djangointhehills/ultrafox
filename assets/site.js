@@ -126,6 +126,7 @@
   if (dialog && dialogImg && grid) {
     var cards = Array.prototype.slice.call(grid.querySelectorAll(".photo-card"));
     var currentIdx = 0;
+    var countEl = dialog.querySelector(".lightbox-count");
 
     function showPhoto(idx) {
       idx = ((idx % cards.length) + cards.length) % cards.length;
@@ -134,6 +135,7 @@
       if (!img) return;
       dialogImg.src = img.getAttribute("data-full") || img.src;
       dialogImg.alt = img.alt;
+      if (countEl) countEl.textContent = (idx + 1) + " / " + cards.length;
     }
 
     function openLightbox(idx) {
@@ -171,6 +173,7 @@
 
     dialog.addEventListener("close", function () {
       dialogImg.src = "";
+      if (countEl) countEl.textContent = "";
     });
   }
 })();
